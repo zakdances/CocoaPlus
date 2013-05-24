@@ -7,6 +7,8 @@ This project is very much a **work in progress**. It's reccomended to use this l
 
 This library is my attempt to create a few additions to classes such as more convient syntax or properties that speed up custom drawing and animation. Examples:
 
+
+##### pathUI property of CAShapeLayerPlus
 ```
 CAShapeLayerPlus *shapeLayer = [CAShapeLayerPlus layer];
 
