@@ -13,9 +13,9 @@ This library is my attempt to create a few additions to classes such as more con
 CAShapeLayerPlus *shapeLayer = [CAShapeLayerPlus layer];
 
 //-------------------------------------------------------
-// CAShapeLayerPlus has a special property to store UIBezierPath instances so you don't have to recreate that instance on every redraw of a custom
-// layer. If you're doing animation which rapibly causes -setNeedsDisplay on a layer, then this should speed up drawing in theory. Feel
-// free to speed test it.
+// CAShapeLayerPlus has a special property to store UIBezierPath instances so you don't have to recreate that
+// instance on every redraw of a custom layer. If you're doing animation which rapibly causes -setNeedsDisplay
+// on a layer, then this should speed up drawing in theory. Feel free to speed test it.
 //-------------------------------------------------------
 
 shapeLayer.pathUI = myBezierPath;
