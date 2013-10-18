@@ -7,6 +7,7 @@
 //
 
 #import "UIViewControllerPlusRAC.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @implementation UIViewControllerPlusRAC
 

@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "CocoaPlus"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A take-only-what-you-need collection of helpful classes and categories for iOS and OSX."
 
   s.description  = <<-DESC
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.8'
 
 
-  s.source       = { :git => "https://github.com/zakdances/CocoaPlus.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/zakdances/CocoaPlus.git", :tag => "0.0.2" }
 
   s.default_subspec = 'Core'
 
