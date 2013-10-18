@@ -1,18 +1,14 @@
 //
-//  UIViewControllerPlus.m
+//  UIViewControllerPlusRAC.m
 //  Pods
 //
 //  Created by Zak.
 //
 //
 
-#import "UIViewControllerPlus.h"
+#import "UIViewControllerPlusRAC.h"
 
-@interface UIViewControllerPlus ()
-
-@end
-
-@implementation UIViewControllerPlus
+@implementation UIViewControllerPlusRAC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
