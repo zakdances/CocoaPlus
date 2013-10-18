@@ -17,11 +17,11 @@
     if (self) {
         // Custom initialization
         
-        RACReplaySubject *interfaceOrientationSignal = [RACReplaySubject replaySubjectWithCapacity:10];
-        self.interfaceOrientationSignal = interfaceOrientationSignal;
+        // RACReplaySubject *interfaceOrientationSignal = [RACReplaySubject replaySubjectWithCapacity:10];
+        // self.interfaceOrientationSignal = interfaceOrientationSignal;
         
-        RACSubject *rotationDurationSignal = [RACSubject subject];
-        self.rotationDurationSignal = rotationDurationSignal;
+        // RACSubject *rotationDurationSignal = [RACSubject subject];
+        // self.rotationDurationSignal = rotationDurationSignal;
         
         //[interfaceOrientationSignal sendNext:[NSNumber numberWithInteger:self.interfaceOrientation]];
     }
@@ -42,14 +42,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [(RACReplaySubject *)self.interfaceOrientationSignal sendNext:@(self.interfaceOrientation)];
+    // [(RACReplaySubject *)self.interfaceOrientationSignal sendNext:@(self.interfaceOrientation)];
 }
 
 #pragma mark Rotation
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration {
-    [(RACSubject *)self.rotationDurationSignal sendNext:@(duration)];
-    [(RACReplaySubject *)self.interfaceOrientationSignal sendNext:@(interfaceOrientation)];
+    // [(RACSubject *)self.rotationDurationSignal sendNext:@(duration)];
+    // [(RACReplaySubject *)self.interfaceOrientationSignal sendNext:@(interfaceOrientation)];
 }
 
 @end

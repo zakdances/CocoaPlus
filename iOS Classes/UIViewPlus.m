@@ -7,7 +7,7 @@
 //
 
 #import "UIViewPlus.h"
-#import "EXTScope.h"
+#import "CAGradientLayerPlus.h"
 
 @implementation UIViewPlus
 
@@ -26,28 +26,17 @@
         self.layer.opaque = NO;
 
         
-        _contentBoundsSignal = [RACBehaviorSubject behaviorSubjectWithDefaultValue:self];
-        //@weakify(self);
-        
-        [[RACSignal combineLatest:@[RACAbleWithStart(self.frame),RACAbleWithStart(self.bounds),RACAbleWithStart(self.center)]]
-          subscribeNext:^(RACTuple *tuple) {
-              //@strongify(self);
-              //RACTupleUnpack(NSValue *frame,NSValue *bounds,NSValue *center) = tuple;
-             // NSValue *bounds = tuple.second;
-             // NSValue *center = tuple.third;
-             // self.bottom = center.CGPointValue.y + CGRectGetMidY(bounds.CGRectValue);
-              
-          }];
+
        
     }
     return self;
 }
 
-+ (UIViewPlus *)viewWithFrame:(CGRect)frame
-{
-    UIViewPlus *view = [[UIViewPlus alloc] initWithFrame:frame];
-    return view;
-}
+// + (UIViewPlus *)viewWithFrame:(CGRect)frame
+// {
+//     UIViewPlus *view = [[UIViewPlus alloc] initWithFrame:frame];
+//     return view;
+// }
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -58,6 +47,7 @@
 }
 */
 
+// TODO: Maybe this should be intrinsicContentSize?
 - (CGSize)sizeThatFits:(CGSize)size
 {
 
@@ -96,107 +86,6 @@
    
     return CGSizeMake(width,height);
 }
-
-
-- (void)addSubview:(UIView *)view
-{
-    [super addSubview:view];
-    
-//    [[RACSignal combineLatest:@[RACAbleWithStart(view,bounds),RACAbleWithStart(view,center)]]
-//     subscribeNext:^(RACTuple *x) {
-//         
-//     }];
-    @weakify(self);
-    [[view.rcl_boundsSignal deliverOn:[RACScheduler mainThreadScheduler]] subscribeNext:^(id x) {
-        @strongify(self);
-        [_contentBoundsSignal sendNext:self];
-    }];
-    
-//    if (self.divLikeBehaviorForSubviews) {
-//        
-//
-//    
-//    @weakify(self);
-//    [[RACSignal combineLatest:@[RACAbleWithStart(view,bounds),RACAbleWithStart(view,center)]]
-//     subscribeNext:^(RACTuple *tuple) {
-//        @strongify(self);
-//       
-//    }];
-//        
-//    }
-}
-
-
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    if (_stackSubviews == YES) {
-    
-
-        [self.subviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
-            CGFloat newY;
-            if (idx == 0) {
-                
-                newY = CGRectGetMidY(view.bounds);
-            }
-            else {
-                UIView *previousView = self.subviews[idx-1];
-                newY = (previousView.center.y + CGRectGetMidY(previousView.bounds)) + CGRectGetMidY(view.bounds);
-            }
-            
-            //CGPoint newCenter = CGPointMake(view.center.x, newY + 20 );
-            view.center = CGPointMake(view.center.x, newY + 20 );
-            
-            
-        }];
-
-        _stackSubviews = NO;
-        
-        if (_needsSizeThatFits) {
-            _needsSizeThatFits = NO;
-            [self sizeToFit];
-        }
-    };
-}
-
-
-
-
-- (void)layoutStackedSubviews
-{
-    _stackSubviews = YES;
-    [self setNeedsLayout];
-    [self layoutIfNeeded];
-}
-
-- (void)layoutStackedSubviewsAndSizeToFit
-{
-    _needsSizeThatFits = YES;
-    [self layoutStackedSubviews];
-}
-
-
-//- (RACSignal *)contentBoundsSignal
-//{
-//    return [_contentBoundsSignal deliverOn:[RACScheduler mainThreadScheduler]];
-//}
-//- (void)setContentBoundsSignal:(RACSignal *)contentBoundsSignal
-//{
-//    
-//}
-
-
-- (CGSize)intrinsicContentSize
-{
-    return _intrinsicContentSize;
-}
-- (void)setIntrinsicContentSize:(CGSize)intrinsicContentSize
-{
-    _intrinsicContentSize = intrinsicContentSize;
-}
-
 
 + (Class)layerClass
 {

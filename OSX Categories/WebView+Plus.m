@@ -1,14 +1,14 @@
 //
-//  WebView+CocoaPlus.m
+//  WebView+Plus.m
 //  Pods
 //
 //  Created by Zak.
 //
 //
 
-#import "WebView+CocoaPlus.h"
+#import "WebView+Plus.h"
 
-@implementation WebView (CocoaPlus)
+@implementation WebView (Plus)
 
 - (DOMHTMLElement *)newTag:(NSString *)tagName attributes:(NSDictionary *)attributes innerHTML:(NSString *)innerHTML
 {

@@ -1,5 +1,5 @@
 //
-//  WebView+CocoaPlus.h
+//  WebView+Plus.h
 //  Pods
 //
 //  Created by Zak.
@@ -8,7 +8,7 @@
 
 #import <WebKit/WebKit.h>
 
-@interface WebView (CocoaPlus)
+@interface WebView (Plus)
 
 @property (weak) DOMHTMLElement		*headTag;
 @property (weak) DOMHTMLElement		*bodyTag;
