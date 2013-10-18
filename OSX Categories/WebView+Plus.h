@@ -26,8 +26,8 @@
 
 - (DOMHTMLElement *)newScriptTag:(NSString *)src;
 
-+ (WebViewPlus *)dummyWebViewWithBlankPage;
++ (WebView *)dummyWebViewWithBlankPage;
 
-+ (WebViewPlus *)dummyWebViewWithTitle:(NSString *)title stylesheets:(NSArray *)stylesheets scripts:(NSArray *)scripts;
++ (WebView *)dummyWebViewWithTitle:(NSString *)title stylesheets:(NSArray *)stylesheets scripts:(NSArray *)scripts;
 
 @end
