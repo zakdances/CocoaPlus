@@ -18,7 +18,7 @@
 
 // @property CGSize intrinsicContentSize;
 //@property BOOL divLikeBehaviorForSubviews;
-@property (weak,nonatomic) CAGradientLayerPlus *layer;
+// @property (weak,nonatomic) CAGradientLayerPlus *layer;
 //@property (strong) RACSignal *contentBoundsSignal;
 
 // - (void)layoutStackedSubviews;

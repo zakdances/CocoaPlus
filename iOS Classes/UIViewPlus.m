@@ -92,4 +92,14 @@
     return [CAGradientLayerPlus class];
 }
 
+// - (CAGradientLayerPlus *)layer
+// {
+//     return (CAGradientLayerPlus *)super.layer;
+// }
+
+// - (void)setLayer:(CAGradientLayerPlus *)layer
+// {
+//     super.layer = layer;
+// }
+
 @end
