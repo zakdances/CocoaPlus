@@ -1,108 +1,137 @@
 #
-# Be sure to run `pod spec lint CocoaPlus.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
+#  Be sure to run `pod spec lint CocoaPlus.podspec' to ensure this is a
+#  valid spec and to remove all comments including this before submitting the spec.
 #
-# To learn more about the attributes see http://docs.cocoapods.org/specification.html
+#  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
+#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
 #
+
 Pod::Spec.new do |s|
+
+  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  These will help people to find your library, and whilst it
+  #  can feel like a chore to fill in it's definitely to your advantage. The
+  #  summary should be tweet-length, and the description more in depth.
+  #
+
   s.name         = "CocoaPlus"
   s.version      = "0.0.1"
-  s.summary      = "A short description of CocoaPlus."
-  # s.description  = <<-DESC
-  #                   An optional longer description of CocoaPlus
-  #
-  #                   * Markdown format.
-  #                   * Don't worry about the indent, we strip it!
-  #                  DESC
-  s.homepage     = "http://EXAMPLE/CocoaPlus"
+  s.summary      = "A take-only-what-you-need collection of helpful classes and categories for iOS and OSX."
+
+  s.description  = <<-DESC
+                   A longer description of CocoaPlus in Markdown format.
+
+                   * Think: Why did you write this? What is the focus? What does it do?
+                   * CocoaPods will be using this to generate tags, and improve search results.
+                   * Try to keep it short, snappy and to the point.
+                   * Finally, don't worry about the indent, CocoaPods strips it!
+                   DESC
+
+  s.homepage     = "https://github.com/zakdances/CocoaPlus"
   # s.screenshots  = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
 
-  # Specify the license type. CocoaPods detects automatically the license file if it is named
-  # 'LICENCE*.*' or 'LICENSE*.*', however if the name is different, specify it.
-  s.license      = 'MIT (example)'
-  # s.license      = { :type => 'MIT (example)', :file => 'FILE_LICENSE' }
 
-  # Specify the authors of the library, with email addresses. You can often find
-  # the email addresses of the authors by using the SCM log. E.g. $ git log
+  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
-  s.author       = { "Zak" => "zakdances@gmail.com" }
-  # s.authors      = { "Zak" => "zakdances@gmail.com", "other author" => "and email address" }
+  #  Licensing your code is important. See http://choosealicense.com for more info.
+  #  CocoaPods will detect a license file if there is a named LICENSE*
+  #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
-  # If absolutely no email addresses are available, then you can use this form instead.
+
+  s.license      = 'MIT'
+  # s.license      = { :type => 'MIT', :file => 'FILE_LICENSE' }
+
+
+  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
+  #  Specify the authors of the library, with email addresses. Email addresses
+  #  of the authors by using the SCM log. E.g. $ git log. If no email can be
+  #  found CocoaPods accept just the names.
+  #
+
+  s.author       = { "Zak" }
+  # s.authors      = { "Zak" => "zakdances@gmail.com", "other author" => "email@address.com" }
   # s.author       = 'Zak', 'other author'
 
-  # Specify the location from where the source should be retrieved.
+
+  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
-  s.source       = { :git => "http://EXAMPLE/CocoaPlus.git", :tag => "0.0.1" }
-
-
-  # If this Pod runs only on iOS or OS X, then specify the platform and
-  # the deployment target.
+  #  If this Pod runs only on iOS or OS X, then specify the platform and
+  #  the deployment target. You can optionally include the target after the platform.
   #
-  s.platform     = :ios, '6.1'
 
-  # ――― MULTI-PLATFORM VALUES ――――――――――――――――――――――――――――――――――――――――――――――――― #
+  # s.platform     = :ios
+  # s.platform     = :ios, '5.0'
 
-  # If this Pod runs on both platforms, then specify the deployment
-  # targets.
-  #
+  #  When using multiple platforms
   # s.ios.deployment_target = '5.0'
   # s.osx.deployment_target = '10.7'
 
-  # A list of file patterns which select the source files that should be
-  # added to the Pods project. If the pattern is a directory then the
-  # path will automatically have '*.{h,m,mm,c,cpp}' appended.
-  #
-  s.source_files = 'Classes', 'Categories'
-  #s.exclude_files = 'Classes/Exclude'
 
-  # A list of file patterns which select the header files that should be
-  # made available to the application. If the pattern is a directory then the
-  # path will automatically have '*.h' appended.
+  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
-  # If you do not explicitly set the list of public header files,
-  # all headers of source_files will be made public.
+  #  Specify the location from where the source should be retrieved.
+  #  Supports git, hg, svn and HTTP.
   #
+
+  s.source       = { :git => "https://github.com/zakdances/CocoaPlus.git", :tag => "0.0.1" }
+
+
+  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  CocoaPods is smart about how it includes source code. For source files
+  #  giving a folder will include any h, m, mm, c & cpp files. For header
+  #  files it will include any header in the folder.
+  #  Not including the public_header_files will make all headers public.
+  #
+
+  s.ios.source_files  = 'iOS Classes', 'iOS Classes/**/*.{h,m}', 'iOS Categories', 'iOS Categories/**/*.{h,m}'
+  s.osx.source_files  = 'OSX Classes', 'OSX Classes/**/*.{h,m}', 'OSX Categories', 'OSX Categories/**/*.{h,m}'
+  # s.exclude_files = 'Classes/Exclude'
+
   # s.public_header_files = 'Classes/**/*.h'
 
-  # A list of resources included with the Pod. These are copied into the
-  # target bundle with a build phase script.
+
+  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
+  #  A list of resources included with the Pod. These are copied into the
+  #  target bundle with a build phase script. Anything else will be cleaned.
+  #  You can preserve files from being cleaned, please don't preserve
+  #  non-essential files like tests, examples and documentation.
+  #
+
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
 
-  # A list of paths to preserve after installing the Pod.
-  # CocoaPods cleans by default any file that is not used.
-  # Please don't include documentation, example, and test files.
-  #
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
-  # Specify a list of frameworks that the application needs to link
-  # against for this Pod to work.
+
+  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
+  #  Link your library with frameworks, or libraries. Libraries do not include
+  #  the lib prefix of their name.
+  #
+
   # s.framework  = 'SomeFramework'
   # s.frameworks = 'SomeFramework', 'AnotherFramework'
-  s.frameworks   = ['CoreMedia', 'MediaPlayer', 'AVFoundation', 'QuartzCore', 'CoreGraphics']
-  # Specify a list of libraries that the application needs to link
-  # against for this Pod to work.
-  #
+
+  s.ios.frameworks   = ['CoreMedia', 'MediaPlayer', 'AVFoundation', 'QuartzCore', 'CoreGraphics']
+  s.osx.frameworks   = ['Foundation', 'Cocoa', 'AppKit', 'WebKit']
+
   # s.library   = 'iconv'
   # s.libraries = 'iconv', 'xml2'
 
-  # If this Pod uses ARC, specify it like so.
+
+  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
+  #  If your library depends on compiler flags you can set them in the xcconfig hash
+  #  where they will only apply to your library. If you depend on other Podspecs
+  #  you can include multiple dependencies to ensure it works.
+
   s.requires_arc = true
 
-  # If you need to specify any other build settings, add them to the
-  # xcconfig hash.
-  #
   # s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
-
-  # Finally, specify any Pods that this Pod depends on.
-  #
   # s.dependency 'JSONKit', '~> 1.4'
-  s.dependency 'Archimedes'
-  s.dependency 'ReactiveCocoa'
-  s.dependency 'ReactiveCocoaLayout'
+
 end
