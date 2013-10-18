@@ -99,9 +99,9 @@
 }
 
 // TODO: Move this to category
-+ (WebViewPlus *)dummyWebViewWithBlankPage
++ (WebView *)dummyWebViewWithBlankPage
 {
-	WebViewPlus *dummy = [[WebViewPlus alloc] initWithFrame:CGRectMake(0, 0, 200, 200) frameName:@"dummyWV" groupName:@"dummyWVs"];
+	WebView *dummy = [[WebView alloc] initWithFrame:CGRectMake(0, 0, 200, 200) frameName:@"dummyWV" groupName:@"dummyWVs"];
 	
 	dummy.mainFrameURL = @"about:blank";
 	
@@ -113,9 +113,9 @@
 	return dummy;
 }
 
-+ (WebViewPlus *)dummyWebViewWithTitle:(NSString *)title stylesheets:(NSArray *)stylesheets scripts:(NSArray *)scripts
++ (WebView *)dummyWebViewWithTitle:(NSString *)title stylesheets:(NSArray *)stylesheets scripts:(NSArray *)scripts
 {
-	WebViewPlus *dummy = [WebViewPlus dummyWebViewWithBlankPage];
+	WebView *dummy = [WebView dummyWebViewWithBlankPage];
 	
 	for (NSString *stylesheet in stylesheets) {
 		
