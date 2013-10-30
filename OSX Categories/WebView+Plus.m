@@ -65,71 +65,85 @@
     return [self newTag:@"script" attributes:@{ @"src": src } innerHTML:nil];;
 }
 
+- (DOMHTMLElement *)newDivTagWithID:(NSString *)tagID classes:(NSArray *)classes innerHTML:(NSString *)innerHTML
+{
+    // Create new div element.
+	return [self newTag:@"div" tagID:tagID classes:classes innerHTML:innerHTML];
+}
 
+- (DOMHTMLElement *)newDivTagWithID:(NSString *)tagID classes:(NSArray *)classes otherAttributes:(NSDictionary *)otherAttributes innerHTML:(NSString *)innerHTML
+{
+    // Create new div element with additional attributes.
+	return [self newTag:@"div" tagID:tagID classes:classes otherAttributes:otherAttributes innerHTML:innerHTML];
+}
 
+- (DOMHTMLElement *)htmlTag
+{
+	return (DOMHTMLHtmlElement *)self.mainFrameDocument.documentElement;
+}
 
 - (DOMHTMLElement *)headTag
 {
 	return (DOMHTMLElement *)[[self.mainFrameDocument getElementsByTagName:@"head"] item:0];
 }
 
-- (void)setHeadTag:(DOMHTMLElement *)headTag
-{
-	// TODO: check to ensure "head" tagName
-}
+//- (void)setHeadTag:(DOMHTMLElement *)headTag
+//{
+//	// TODO: check to ensure "head" tagName
+//}
 
 - (DOMHTMLElement *)bodyTag
 {
 	return (DOMHTMLElement *)[[self.mainFrameDocument getElementsByTagName:@"body"] item:0];
 }
 
-- (void)setBodyTag:(DOMHTMLElement *)bodyTag
-{
-	// TODO: check to ensure "body" tagName
-}
+//- (void)setBodyTag:(DOMHTMLElement *)bodyTag
+//{
+//	// TODO: check to ensure "body" tagName
+//}
 
 - (NSString *)outerHTML
 {
 	return [(DOMHTMLElement *)[[self.mainFrame DOMDocument] documentElement] outerHTML];
 }
 
-- (void)setOuterHTML:(NSString *)outerHTML
-{
-	// TODO: check to ensure "html" tagName
-}
+//- (void)setOuterHTML:(NSString *)outerHTML
+//{
+//	// TODO: check to ensure "html" tagName
+//}
 
 // TODO: Move this to category
-+ (WebView *)dummyWebViewWithBlankPage
++ (WebView *)webViewWithBlankPage
 {
 	WebView *dummy = [[WebView alloc] initWithFrame:CGRectMake(0, 0, 200, 200) frameName:@"dummyWV" groupName:@"dummyWVs"];
 	
 	dummy.mainFrameURL = @"about:blank";
 	
-	DOMHTMLHtmlElement *htmlTag = (DOMHTMLHtmlElement *)dummy.mainFrameDocument.documentElement;
-	[htmlTag setAttribute:@"lang" value:@"en"];
+//	DOMHTMLHtmlElement *htmlTag = (DOMHTMLHtmlElement *)dummy.mainFrameDocument.documentElement;
+	[dummy.htmlTag setAttribute:@"lang" value:@"en"];
 	
 	[dummy setNeedsDisplay:YES];
 	// TODO: set doctype somehow
 	return dummy;
 }
 
-+ (WebView *)dummyWebViewWithTitle:(NSString *)title stylesheets:(NSArray *)stylesheets scripts:(NSArray *)scripts
-{
-	WebView *dummy = [WebView dummyWebViewWithBlankPage];
-	
-	for (NSString *stylesheet in stylesheets) {
-		
-		[dummy.headTag appendChild:[dummy newLinkStylesheetTag:stylesheet]];
-	}
-	
-	for (NSString *script in scripts) {
-		
-		[dummy.headTag appendChild:[dummy newScriptTag:script]];
-	}
-	
-	[dummy setNeedsDisplay:YES];
-	
-	return dummy;
-}
+//+ (WebView *)dummyWebViewWithTitle:(NSString *)title stylesheets:(NSArray *)stylesheets scripts:(NSArray *)scripts
+//{
+//	WebView *dummy = [WebView dummyWebViewWithBlankPage];
+//	
+//	for (NSString *stylesheet in stylesheets) {
+//		
+//		[dummy.headTag appendChild:[dummy newLinkStylesheetTag:stylesheet]];
+//	}
+//	
+//	for (NSString *script in scripts) {
+//		
+//		[dummy.headTag appendChild:[dummy newScriptTag:script]];
+//	}
+//	
+//	[dummy setNeedsDisplay:YES];
+//	
+//	return dummy;
+//}
 
 @end
